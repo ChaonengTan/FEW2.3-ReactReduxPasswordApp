@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 
 function generatePassword(num) {
-    console.log('generating password', Math.random())
-    const min=33, max=126
-    console.log('test', String.fromCharCode(Math.floor(Math.random()*(Math.floor(max)-Math.ceil(min)+1)+Math.ceil(min))))
-    return Array(num).map(() => {
-        return (String.fromCharCode(Math.floor(Math.random()*(Math.floor(max)-Math.ceil(min)+1)+Math.ceil(min))))
-    }).join('')
+    return (Array(num).fill(0).map(() => {
+        return String.fromCharCode(Math.floor(Math.random()*92+33))
+    }).join(''))
 }
 function Password() {
     const [password, setPassword] = useState('p@$$w0rd')
