@@ -9,11 +9,15 @@ function Password() {
     const [password, setPassword] = useState('p@$$w0rd')
     return (
         <div>
-            <div>{password}</div>
+            <div>
+                <input
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                />
+            </div>
             <div>
                 <button onClick={e => {
                     setPassword(generatePassword(8))
-                    console.log(password)
                 }}>Generate</button>
             </div>
         </div>
