@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect, useSelector } from 'react-redux'
+import './styles/PasswordList.css'
 
 import zxcvbn from 'zxcvbn'
 
@@ -15,7 +16,7 @@ function PasswordList() {
         </div>)
         })
     return (
-        <div>
+        <div className='passwordList'>
         {passwordList}
         </div>
     )

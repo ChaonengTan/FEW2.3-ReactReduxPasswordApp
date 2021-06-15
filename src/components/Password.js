@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { useDispatch } from 'react-redux'
 import { addPassword } from '../actions'
+import './styles/Password.css'
 
 function generatePassword(num) {
     return (Array(num).fill(0).map(() => {
@@ -13,7 +14,7 @@ function Password() {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('p@$$w0rd')
     return (
-        <div>
+        <div className='password'>
             <div>
                 <input
                     onChange={(e) => setName(e.target.value)}
@@ -24,16 +25,15 @@ function Password() {
                     value={password}
                 />
             </div>
-            <div>
-                <button onClick={(e) => {
-                    dispatch(addPassword(name, password))
-                }}>Save</button>
+            <div className='passwordButtons'>
+                    <button onClick={(e) => {
+                        dispatch(addPassword(name, password))
+                    }}>Save</button>
+                    <button onClick={e => {
+                        setPassword(generatePassword(8))
+                    }}>Generate</button>
             </div>
-            <div>
-                <button onClick={e => {
-                    setPassword(generatePassword(8))
-                }}>Generate</button>
-            </div>
+            
         </div>
     )
 }
